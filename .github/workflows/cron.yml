@@ -1,0 +1,20 @@
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+    build:
+      runs-on: ubuntu-16.04
+      name: Run Script
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-ruby@v1
+          with:
+            ruby-version: '2.6'
+        - name: Install Deps
+          run: gem install tanakai
+        - name: Run script
+          run: ruby -e "puts Date.today.to_s"
+          env:
+            SO_EMAIL: ${{secrets.SO_EMAIL}}
+            SO_PASSWORD: ${{secrets.SO_PASSWORD}}
