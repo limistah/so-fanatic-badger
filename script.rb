@@ -4,7 +4,7 @@ require 'tanakai'
 require "uri"
 
 class Spider < Tanakai::Base
-    @name = "jubad_spider"
+    @name = "so_spread_spider"
     @engine = :selenium_chrome
     @start_urls = ["https://stackoverflow.com"]
     @config = {
