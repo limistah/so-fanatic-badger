@@ -2,7 +2,7 @@ name: Run the script every hour
 
 on:
   schedule:
-    - cron: '0 * * * *'  # At every hour
+    - cron: '15 * * * *'  # At every 15 minutes past the hour
     
 jobs:
     build:
@@ -13,7 +13,7 @@ jobs:
         - uses: actions/setup-ruby@v1
         - uses: browser-actions/setup-chrome@v1
         - uses: nanasess/setup-chromedriver@v2
-        - run: bundler install 
+        - run: bundler install
         - run: ./script.rb
           env:
             SO_EMAIL: ${{secrets.SO_EMAIL}}
