@@ -15,7 +15,7 @@ jobs:
         - name: Install Deps
           run: gem install tanakai
         - name: Run script
-          run: ruby -e "puts Date.today.to_s"
+          run: ruby -e "require 'time' \n puts Date.today.to_s"
           env:
             SO_EMAIL: ${{secrets.SO_EMAIL}}
             SO_PASSWORD: ${{secrets.SO_PASSWORD}}
