@@ -1,8 +1,9 @@
-on:
-  push:
-  schedule:
-    - cron: '*/20 * * * *'
+name: Run the script every hour
 
+on:
+  schedule:
+    - cron: '0 * * * *'  # At 00:00 every Sunday
+    
 jobs:
     build:
       runs-on: ubuntu-latest
