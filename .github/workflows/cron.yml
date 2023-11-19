@@ -12,9 +12,8 @@ jobs:
         - uses: actions/setup-ruby@v1
         - uses: browser-actions/setup-chrome@v1
         - run: chrome --version
-        - run: whereis ruby
         - name: Install Deps
-          run: gem install tanakai
+          run: bundler install 
         - name: Run script
           run: ./script.rb
           env:
