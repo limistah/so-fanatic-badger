@@ -12,10 +12,11 @@ jobs:
         - uses: actions/setup-ruby@v1
         - uses: browser-actions/setup-chrome@v1
         - run: chrome --version
+        - run: whereis ruby
         - name: Install Deps
           run: gem install tanakai
         - name: Run script
-          run: ruby -e "require 'time' \n puts Date.today.to_s"
+          run: ./script.rb
           env:
             SO_EMAIL: ${{secrets.SO_EMAIL}}
             SO_PASSWORD: ${{secrets.SO_PASSWORD}}

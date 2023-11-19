@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require 'tanakai'
 require "uri"
 
