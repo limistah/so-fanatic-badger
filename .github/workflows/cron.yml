@@ -2,7 +2,7 @@ name: Run the script every hour
 
 on:
   schedule:
-    - cron: '15 * * * *'  # At every 15 minutes past the hour
+    - cron: '15 */4 * * *'  # At every 15 minutes past the hour
     
 jobs:
     build:
