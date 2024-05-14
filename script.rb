@@ -14,8 +14,8 @@ class Spider < Tanakai::Base
 
     def parse(response, url:, data: {})
         browser.find("//*[@data-gps-track='login.click']").click
-        browser.find("input#email").fill_in with: ENV['SO_EMAIL']
-        browser.find("input#password").fill_in with: ENV['SO_PASSWORD']
+        browser.find("//*[@id='email']").fill_in with: ENV['SO_EMAIL']
+        browser.find("//*[@id='password']").fill_in with: ENV['SO_PASSWORD']
 
         browser.current_window.resize_to(1_200, 800)
         browser.click_button("#submit-button")
