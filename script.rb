@@ -31,7 +31,7 @@ class Spider < Tanakai::Base
         browser.find("//*[@data-gps-track='login.click']").click
     end
 
-    def fill_email_password
+    def fill_email_password_and_login
         browser.find("//*[@id='email']").fill_in with: ENV['SO_EMAIL']
         browser.find("//*[@id='password']").fill_in with: ENV['SO_PASSWORD']
         browser.current_window.resize_to(1_200, 800)
