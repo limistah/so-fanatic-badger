@@ -18,7 +18,7 @@ class Spider < Tanakai::Base
         browser.find("//*[@id='password']").fill_in with: ENV['SO_PASSWORD']
 
         browser.current_window.resize_to(1_200, 800)
-        browser.click_button("//*[@id='submit-button']")
+        browser.find("//*[@id='submit-button']").click
 
         found_avatar = browser.has_css?(".s-avatar--image")
         browser.click_on "Accept all cookies"
