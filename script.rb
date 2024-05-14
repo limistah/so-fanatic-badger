@@ -22,7 +22,7 @@ class Spider < Tanakai::Base
 
         found_avatar = browser.has_css?(".s-avatar--image")
         browser.click_on "Accept all cookies"
-        puts brower.text
+        puts browser.text
         puts found_avatar ? "Successfully logged in to Stackoverflow today!" : "Unable to Login today"
     end
 end
