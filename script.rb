@@ -17,7 +17,7 @@ class Spider < Tanakai::Base
 
         self.fill_email_password_and_login
 
-        self.user_activity
+        self.run_user_activities
 
         self.log_success_message
     end
@@ -29,6 +29,7 @@ class Spider < Tanakai::Base
 
     def go_to_login_page
         browser.find("//*[@data-gps-track='login.click']").click
+        puts "now on the login page"
     end
 
     def fill_email_password_and_login
@@ -36,12 +37,14 @@ class Spider < Tanakai::Base
         browser.find("//*[@id='password']").fill_in with: ENV['SO_PASSWORD']
         browser.current_window.resize_to(1_200, 800)
         browser.find("//*[@id='submit-button']").click
+        puts "successfully logged in"
     end
 
-    def user_activity
+    def run_user_activities
         browser.click_on "Accept all cookies"
         browser.find("//*[@id='question-mini-list']//a", match: :first).click
         browser.find("//a[@rel='tag']", match: :first).click
+        puts "ran user activities"
     end
 end
 
