@@ -13,18 +13,35 @@ class Spider < Tanakai::Base
     }
 
     def parse(response, url:, data: {})
+        self.go_to_login_page
+
+        self.fill_email_password_and_login
+
+        self.user_activity
+
+        self.log_success_message
+    end
+
+    def log_success_message
+        found_avatar = browser.has_css?(".s-avatar--image")
+        puts found_avatar ? "Successfully logged in to Stackoverflow today!" : "Unable to Login today"
+    end
+
+    def go_to_login_page
         browser.find("//*[@data-gps-track='login.click']").click
+    end
+
+    def fill_email_password
         browser.find("//*[@id='email']").fill_in with: ENV['SO_EMAIL']
         browser.find("//*[@id='password']").fill_in with: ENV['SO_PASSWORD']
-
         browser.current_window.resize_to(1_200, 800)
         browser.find("//*[@id='submit-button']").click
+    end
 
-        found_avatar = browser.has_css?(".s-avatar--image")
+    def user_activity
         browser.click_on "Accept all cookies"
         browser.find("//*[@id='question-mini-list']//a", match: :first).click
         browser.find("//a[@rel='tag']", match: :first).click
-        puts found_avatar ? "Successfully logged in to Stackoverflow today!" : "Unable to Login today"
     end
 end
 
