@@ -13,8 +13,7 @@ class Spider < Tanakai::Base
     }
 
     def parse(response, url:, data: {})
-        puts response
-        browser.click_on "Log in"
+        browser.find('[data-gps-track="login.click"').click
         browser.fill_in("Email", with: ENV['SO_EMAIL'])
         browser.fill_in("Password", with: ENV['SO_PASSWORD'])
 
@@ -23,6 +22,7 @@ class Spider < Tanakai::Base
 
         found_avatar = browser.has_css?(".s-avatar--image")
         browser.click_on "Accept all cookies"
+        puts brower.text
         puts found_avatar ? "Successfully logged in to Stackoverflow today!" : "Unable to Login today"
     end
 end
