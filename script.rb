@@ -13,6 +13,7 @@ class Spider < Tanakai::Base
     }
 
     def parse(response, url:, data: {})
+        puts response
         browser.click_on "Log in"
         browser.fill_in("Email", with: ENV['SO_EMAIL'])
         browser.fill_in("Password", with: ENV['SO_PASSWORD'])
