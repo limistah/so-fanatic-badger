@@ -14,11 +14,8 @@ class Spider < Tanakai::Base
 
     def parse(response, url:, data: {})
         self.go_to_login_page
-
         self.fill_email_password_and_login
-
         self.run_user_activities
-
         self.log_success_message
     end
 
