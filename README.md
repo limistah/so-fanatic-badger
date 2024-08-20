@@ -1,10 +1,10 @@
-## Stacoverflow Fanatic Badge Earner
+## StackOverflow Fanatic Badge Earner
 
-[Fanatic badge](https://stackoverflow.com/help/badges/83/fanatic) is one of the easiest to earn on stackoverflow.
+[Fanatic badge](https://stackoverflow.com/help/badges/83/fanatic) is one of the easiest to earn on Stackoverflow.
 
-It requires consistently logging on to s/o every day for a total of 100 days, that is a lot of discipline for a geeky Q/A site.
+It requires consistently logging on to s/o every day for 100 days. That is a lot of discipline for a geeky Q&A site.
 
-I tend to solve this with the attached ruby script.
+I intend to solve this with the attached ruby script.
 
 ## How to run
 Install dependencies:
@@ -20,3 +20,12 @@ Run the script:
 ```bash
 ./script.rb
 ```
+
+## Enable Automation with Github Action
+Update the .github/workflows/cron.yml, set the cron value to something like: 15 */2 * * *'
+```yaml
+on:
+  schedule:
+    - cron: '15 */2 * * *'  # At every 15 minutes past the 8th hour
+```
+Then wait for the next 100 days to get your badge.
