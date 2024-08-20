@@ -3,7 +3,7 @@ name: Run the script every hour
 on:
   push:
   schedule:
-    - cron: '15 */2 * * *'  # At every 15 minutes past the 8th hour
+    - cron: '0 0 1 1 *'  # Runs at 00:00, on day 1 of the month, only in January.
     
 jobs:
     build:
